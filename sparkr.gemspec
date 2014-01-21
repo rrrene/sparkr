@@ -8,8 +8,8 @@ Gem::Specification.new do |spec|
   spec.version       = Sparkr::VERSION
   spec.authors       = ["René Föhring"]
   spec.email         = ["rf@bamaru.de"]
-  spec.summary       = %w{Sparklines in your shell, in Ruby}
-  spec.description   = %q{Sparklines in your shell, in Ruby}
+  spec.summary       = %w{ASCII Sparklines in Ruby}
+  spec.description   = %q{ASCII Sparklines in Ruby}
   spec.homepage      = ""
   spec.license       = "MIT"
 
