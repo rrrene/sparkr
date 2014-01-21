@@ -2,7 +2,7 @@
 
 Sparkr is a port of [spark](https://github.com/holman/spark) for Ruby.
 
-It let's you create sparklines for your Ruby CLIs: ▁▂▃▅▇
+It let's you create ASCII sparklines for your Ruby CLIs: ▁▂▃▅▇
 
 ## Installation
 
