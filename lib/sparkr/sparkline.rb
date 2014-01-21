@@ -1,6 +1,7 @@
 module Sparkr
   class Sparkline
     TICKS = %w(▁ ▂ ▃ ▄ ▅ ▆ ▇ █)
+    DEFAULT_SEPARATOR = ''
 
     def initialize(_numbers)
       numbers = _numbers.map(&:to_i)
@@ -12,8 +13,8 @@ module Sparkr
       end
     end
 
-    def to_s
-      @ticks.join('')
+    def to_s(sep = nil)
+      @ticks.join(sep || DEFAULT_SEPARATOR)
     end
   end
 end
