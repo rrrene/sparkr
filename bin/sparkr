@@ -4,8 +4,8 @@ require 'bundler'
 begin
   Bundler.require
 rescue Bundler::GemfileNotFound
-  require 'Sparkr'
+  require 'sparkr'
 end
 
-require 'Sparkr'
+require 'sparkr'
 Sparkr::CLI.run(*ARGV)

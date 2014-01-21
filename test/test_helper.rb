@@ -8,6 +8,8 @@ require 'minitest/autorun'
 require 'bundler'
 Bundler.require
 
-def fixture_path(name)
-  File.join(File.dirname(__FILE__), "fixtures", name.to_s)
+def assert_sparkline(expected, actual)
+  assert actual.index('▁'), "there must be a minimum"
+  assert actual.index('█'), "there must be a maximum"
+  assert_equal expected, actual
 end

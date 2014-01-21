@@ -1,20 +1,15 @@
-require 'pry'
-
 module Sparkr
   class Sparkline
     TICKS = %w(▁ ▂ ▃ ▄ ▅ ▆ ▇ █)
 
-    def initialize(numbers)
-      @step_count = TICKS.size
-      @step_height = (numbers.max - numbers.min) / @step_count + 1
+    def initialize(_numbers)
+      numbers = _numbers.map(&:to_i)
+      step_height = (numbers.max - numbers.min) / (TICKS.size - 1).to_f
 
-      indexes = numbers.map do |n|
-        ((n - numbers.min) / @step_height).to_i
-      end
-      @ticks = indexes.map do |index|
+      @ticks = numbers.map do |n|
+        index = ((n - numbers.min) / step_height).to_i
         TICKS[index]
       end
-      binding.pry
     end
 
     def to_s
