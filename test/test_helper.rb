@@ -8,8 +8,10 @@ require 'minitest/autorun'
 require 'bundler'
 Bundler.require
 
-def assert_sparkline(expected, actual)
-  assert actual.index('▁'), "there must be a minimum"
-  assert actual.index('█'), "there must be a maximum"
+def assert_sparkline(expected, numbers)
+  actual = Sparkr.sparkline(numbers)
+
+  assert actual.include?('▁'), "there must be a minimum"
+  assert actual.include?('█'), "there must be a maximum"
   assert_equal expected, actual
 end
