@@ -1,0 +1,11 @@
+#!/usr/bin/env ruby
+
+require 'bundler'
+begin
+  Bundler.require
+rescue Bundler::GemfileNotFound
+  require 'Sparkr'
+end
+
+require 'Sparkr'
+Sparkr::CLI.run(*ARGV)
