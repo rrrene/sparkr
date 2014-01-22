@@ -1,3 +1,5 @@
+# encoding: utf-8
+
 module Sparkr
   class CLI
     def self.run(*args)

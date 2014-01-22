@@ -1,3 +1,5 @@
+# encoding: utf-8
+
 require "sparkr/cli"
 require "sparkr/sparkline"
 require "sparkr/version"
