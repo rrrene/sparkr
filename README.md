@@ -1,5 +1,7 @@
 # Sparkr
 
+[![Build Status](https://travis-ci.org/rrrene/sparkr.png?branch=master)](https://travis-ci.org/rrrene/sparkr)
+
 Sparkr is a port of [spark](https://github.com/holman/spark) for Ruby.
 
 It let's you create ASCII sparklines for your Ruby CLIs: ▁▂▃▅▇
