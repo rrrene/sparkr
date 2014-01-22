@@ -6,6 +6,8 @@ module Sparkr
     DEFAULT_SEPARATOR = ''
 
     def initialize(_numbers)
+      @original_numbers = _numbers
+
       numbers  = normalize_numbers(_numbers)
       one_step = step_height(numbers)
 
@@ -13,6 +15,44 @@ module Sparkr
         index = (n / one_step).to_i
         TICKS[index]
       end
+    end
+
+    # Formats all the ticks in the Sparkline with a given block,
+    # returns itself
+    #
+    # Example:
+    #
+    # Let's say you have a list of open and closed issues and want
+    # to format it so the open ones are red and the closed ones are
+    # green, so you can quickly see how you are doing. Let's further
+    # suppose you use a gem that adds a #color method to String
+    # for ANSI coloring.
+    #
+    #   list = [open_issue_count, closed_issue_count]
+    #   sparkline = Sparkr::Sparkline.new(list)
+    #   sparkline.format do |tick, count, index|
+    #     if index == 0
+    #       tick.color(:red)
+    #     else
+    #       tick.color(:green)
+    #     end
+    #   end
+    #
+    #   sparkline.to_s
+    #   # => "▁█" (colored, which you can't see)
+    #
+    # @return [Sparkline] itself
+    def format(&block)
+      new_ticks = []
+      @ticks.each_with_index do |tick, index|
+        if block.arity == 2
+          new_ticks << yield(tick, @original_numbers[index])
+        elsif block.arity == 3
+          new_ticks << yield(tick, @original_numbers[index], index)
+        end
+      end
+      @ticks = new_ticks
+      self
     end
 
     # Returns the normalized equivalent of a given list
