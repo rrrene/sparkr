@@ -14,6 +14,8 @@ def assert_sparkline(expected, numbers)
   actual = Sparkr.sparkline(numbers)
 
   assert actual.include?('▁'), "there must be a minimum"
-  assert actual.include?('█'), "there must be a maximum"
+  unless numbers.uniq.size == 1 # all numbers are the same
+    assert actual.include?('█'), "there must be a maximum"
+  end
   assert_equal expected, actual
 end

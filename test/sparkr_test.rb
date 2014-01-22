@@ -12,5 +12,7 @@ describe ::Sparkr do
     assert_sparkline '▁▃█', [2,4,8]
     assert_sparkline '▁▂▃▄▂█', [0,30,55,80,33,150]
     assert_sparkline '▁▂▄▆█', [1,2,3,4,5]
+
+    assert_sparkline '▁▁', [10, 10]
   end
 end
