@@ -31,6 +31,8 @@
         <h1>
 <a name="sparkr" class="anchor" href="#sparkr"><span class="octicon octicon-link"></span></a>Sparkr</h1>
 
+<p><a href="https://travis-ci.org/rrrene/sparkr"><img src="https://travis-ci.org/rrrene/sparkr.png?branch=master" alt="Build Status"></a></p>
+
 <p>Sparkr is a port of <a href="https://github.com/holman/spark">spark</a> for Ruby.</p>
 
 <p>It let's you create ASCII sparklines for your Ruby CLIs: ▁▂▃▅▇</p>
@@ -76,6 +78,36 @@ you would expect:</p>
 # =&gt; "▁▂▃▅▂▇"
 </code></pre>
 
+<h3>
+<a name="coloring" class="anchor" href="#coloring"><span class="octicon octicon-link"></span></a>Coloring</h3>
+
+<p>Let's say you have your list of open and closed issues.</p>
+
+<pre><code>list = [open_issue_count, closed_issue_count]
+Sparkr.sparkline(list)
+# =&gt; "▁█"
+</code></pre>
+
+<p>But now you want to format the sparkline so that the open issues are red
+and the closed ones are green (to quickly see how you are doing).</p>
+
+<p>Let's further suppose you use a gem that adds a <code>#color</code> method to <code>String</code>
+for ANSI coloring, like
+<a href="https://github.com/flori/term-ansicolor">Term::ANSIColor</a>.</p>
+
+<pre><code>Sparkr.sparkline(list) do |tick, count, index|
+  if index == 0
+    tick.color(:red)
+  else
+    tick.color(:green)
+  end
+end
+# =&gt; "▁█" (colored, trust me)
+</code></pre>
+
+<p>To see how this looks live and in full colour, take a look at
+<a href="http://rrrene.github.io/inch">Inch</a>.</p>
+
 <h2>
 <a name="contributing" class="anchor" href="#contributing"><span class="octicon octicon-link"></span></a>Contributing</h2>
 
@@ -107,16 +139,16 @@ details.</p>
       </footer>
     </div>
     <script src="javascripts/scale.fix.js"></script>
-
-<script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-  ga('create', 'UA-47478322-1', 'trivelop.de');
-  ga('send', 'pageview');
-</script>
+              <script type="text/javascript">
+            var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+            document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+          </script>
+          <script type="text/javascript">
+            try {
+              var pageTracker = _gat._getTracker("UA-47478322-1");
+            pageTracker._trackPageview();
+            } catch(err) {}
+          </script>
 
   </body>
 </html>
