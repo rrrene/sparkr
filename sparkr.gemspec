@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
   spec.email         = ["rf@bamaru.de"]
   spec.summary       = %w{ASCII Sparklines in Ruby}
   spec.description   = %q{ASCII Sparklines in Ruby}
-  spec.homepage      = ""
+  spec.homepage      = "http://trivelop.de/sparkr/"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files -z`.split("\x0")
