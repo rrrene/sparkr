@@ -6,6 +6,7 @@ Sparkr is a port of [spark](https://github.com/holman/spark) for Ruby.
 
 It let's you create ASCII sparklines for your Ruby CLIs: ▁▂▃▅▇
 
+
 ## Installation
 
 Add this line to your application's Gemfile:
@@ -38,6 +39,34 @@ The real reason for this port:
 
     Sparkr.sparkline([0,30,55,80,33,150])
     # => "▁▂▃▅▂▇"
+
+
+### Coloring
+
+Let's say you have your list of open and closed issues.
+
+    list = [open_issue_count, closed_issue_count]
+    Sparkr.sparkline(list)
+    # => "▁█"
+
+But now you want to format the sparkline so that the open issues are red
+and the closed ones are green (to quickly see how you are doing).
+
+Let's further suppose you use a gem that adds a `#color` method to `String`
+for ANSI coloring, like
+[Term::ANSIColor](https://github.com/flori/term-ansicolor).
+
+    Sparkr.sparkline(list) do |tick, count, index|
+      if index == 0
+        tick.color(:red)
+      else
+        tick.color(:green)
+      end
+    end
+    # => "▁█" (colored, trust me)
+
+To see this how this looks live and in full colour, take a look at
+[Inch](http://rrrene.github.io/inch).
 
 
 ## Contributing
