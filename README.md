@@ -65,7 +65,7 @@ for ANSI coloring, like
     end
     # => "▁█" (colored, trust me)
 
-To see this how this looks live and in full colour, take a look at
+To see how this looks live and in full colour, take a look at
 [Inch](http://rrrene.github.io/inch).
 
 
