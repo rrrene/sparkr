@@ -17,4 +17,27 @@ describe ::Sparkr do
   it "should find work with equal numbers" do
     assert_sparkline '▁▁', [10, 10]
   end
+
+
+  it ".sparkline should work with arity == 2" do
+    sparkline = Sparkr.sparkline([5.5,20]) do |tick, number|
+      if number < 6.0
+        tick = tick + "-"
+      else
+        tick
+      end
+    end
+    assert_equal '▁-█', sparkline
+  end
+
+  it ".sparkline should work with arity == 3" do
+    sparkline = Sparkr.sparkline([5.5,20]) do |tick, number, index|
+      if index == 1
+        tick = tick + "-"
+      else
+        tick
+      end
+    end
+    assert_equal '▁█-', sparkline
+  end
 end

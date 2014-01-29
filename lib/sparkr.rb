@@ -5,7 +5,11 @@ require "sparkr/sparkline"
 require "sparkr/version"
 
 module Sparkr
-  def self.sparkline(*args)
-    Sparkline.new(*args).to_s
+  def self.sparkline(*args, &block)
+    sparkline = Sparkline.new(*args)
+    if block
+      sparkline.format(&block)
+    end
+    sparkline.to_s
   end
 end
