@@ -6,14 +6,18 @@ module Sparkr
     DEFAULT_SEPARATOR = ''
 
     def initialize(_numbers)
-      @original_numbers = _numbers
+      if _numbers.empty?
+        @ticks = []
+      else
+        @original_numbers = _numbers
 
-      numbers  = normalize_numbers(_numbers)
-      one_step = step_height(numbers)
+        numbers  = normalize_numbers(_numbers)
+        one_step = step_height(numbers)
 
-      @ticks = numbers.map do |n|
-        index = (n / one_step).to_i
-        TICKS[index]
+        @ticks = numbers.map do |n|
+          index = (n / one_step).to_i
+          TICKS[index]
+        end
       end
     end
 
