@@ -1,10 +1,9 @@
-# Sparkr
-
-[![Build Status](https://travis-ci.org/rrrene/sparkr.png?branch=master)](https://travis-ci.org/rrrene/sparkr)
+# Sparkr [![Build Status](https://travis-ci.org/rrrene/sparkr.png?branch=master)](https://travis-ci.org/rrrene/sparkr)
 
 Sparkr is a port of [spark](https://github.com/holman/spark) for Ruby.
 
 It lets you create ASCII sparklines for your Ruby CLIs: ▁▂▃▅▇
+
 
 
 ## Installation
@@ -20,6 +19,7 @@ And then execute:
 Or install it yourself as:
 
     $ gem install sparkr
+
 
 
 ## Usage
@@ -69,6 +69,7 @@ To see how this looks live and in full colour, take a look at
 [Inch](http://rrrene.github.io/inch).
 
 
+
 ## Contributing
 
 1. Fork it ( http://github.com/rrrene/sparkr/fork )
@@ -78,14 +79,17 @@ To see how this looks live and in full colour, take a look at
 5. Create new Pull Request
 
 
+
 ## Author
 
 René Föhring (@rrrene)
 
 
+
 ## Credits
 
 Sparkr would not exist without Zach Holman's [spark](https://github.com/holman/spark).
+
 
 
 ## License
