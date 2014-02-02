@@ -61,8 +61,8 @@ module Sparkr
 
     # Returns the normalized equivalent of a given list
     #
-    #   normalize_numbers([3,4,7])
-    #   # => [0,1,4]
+    #   normalize_numbers([3, 4, 7])
+    #   # => [0, 1, 4]
     #
     # @return [Fixnum] the normalized equivalent of the given +_numbers+
     def normalize_numbers(_numbers)
@@ -90,7 +90,7 @@ module Sparkr
       TICKS.size - 1
     end
 
-    # @param sep [String,nil] separator used to join the bars of the sparkline
+    # @param sep [String, nil] separator used to join the bars of the sparkline
     # @return [String] the sparkline, seperated by +sep+ (defaults to '')
     def to_s(sep = nil)
       @ticks.join(sep || DEFAULT_SEPARATOR)

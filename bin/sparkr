@@ -1,10 +1,14 @@
 #!/usr/bin/env ruby
 
-path = __FILE__
-while File.symlink?(path)
-  path = File.expand_path(File.readlink(path), File.dirname(path))
+def find_lib_path
+  path = __FILE__
+  while File.symlink?(path)
+    path = File.expand_path(File.readlink(path), File.dirname(path))
+  end
+  File.join(File.dirname(File.expand_path(path)), '..', 'lib')
 end
-$:.unshift(File.join(File.dirname(File.expand_path(path)), '..', 'lib'))
+
+$LOAD_PATH.unshift(find_lib_path)
 
 require 'sparkr'
 Sparkr::CLI.run(*ARGV)

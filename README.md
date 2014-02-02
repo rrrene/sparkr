@@ -37,7 +37,7 @@ you would expect:
 
 The real reason for this port:
 
-    Sparkr.sparkline([0,30,55,80,33,150])
+    Sparkr.sparkline([0, 30, 55, 80, 33, 150])
     # => "▁▂▃▅▂▇"
 
 

@@ -32,7 +32,7 @@ module Sparkr
   #   line
   #   # => "▁█" (colored, trust me)
   #
-  # @param numbers [Array<String,Fixnum,Float>] the numbers to be rendered
+  # @param numbers [Array<String, Fixnum, Float>] the numbers to be rendered
   # @param &block [Proc] optional, can be used to format the rendered string
   #
   # @return [String]
