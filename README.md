@@ -45,9 +45,16 @@ The real reason for this port:
 
 Let's say you have your list of open and closed issues.
 
-    list = [open_issue_count, closed_issue_count]
-    Sparkr.sparkline(list)
-    # => "▁█"
+```ruby
+require 'sparkr'
+
+open_issue_count = 3
+closed_issue_count = 13
+
+list = [open_issue_count, closed_issue_count]
+puts "Issues: " + Sparkr.sparkline(list)
+# => "Issues: ▁█"
+```
 
 But now you want to format the sparkline so that the open issues are red
 and the closed ones are green (to quickly see how you are doing).
@@ -56,14 +63,28 @@ Let's further suppose you use a gem that adds a `#color` method to `String`
 for ANSI coloring, like
 [Term::ANSIColor](https://github.com/flori/term-ansicolor).
 
-    Sparkr.sparkline(list) do |tick, count, index|
-      if index == 0
-        tick.color(:red)
-      else
-        tick.color(:green)
-      end
-    end
-    # => "▁█" (colored, trust me)
+```ruby
+require 'sparkr'
+require 'term/ansicolor'
+
+class String
+  include Term::ANSIColor
+end
+
+open_issue_count = 3
+closed_issue_count = 13
+
+list = [open_issue_count, closed_issue_count]
+sparkline = Sparkr.sparkline(list) do |tick, count, index|
+  if index == 0
+    tick.color(:red)
+  else
+    tick.color(:green)
+  end
+end
+puts "Issues: " + sparkline
+# => "Issues: ▁█" (colored, trust me)
+```
 
 To see how this looks live and in full colour, take a look at
 [Inch](http://rrrene.github.io/inch).
