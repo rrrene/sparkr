@@ -46,16 +46,10 @@ module Sparkr
     #   # => "▁█" (colored, which you can't see)
     #
     # @return [Sparkline] itself
-    def format(&block)
-      new_ticks = []
-      @ticks.each_with_index do |tick, index|
-        if block.arity == 2
-          new_ticks << yield(tick, @original_numbers[index])
-        elsif block.arity == 3
-          new_ticks << yield(tick, @original_numbers[index], index)
-        end
+    def format
+      @ticks = @ticks.map.with_index do |tick, index|
+        yield tick, @original_numbers[index], index
       end
-      @ticks = new_ticks
       self
     end
 
