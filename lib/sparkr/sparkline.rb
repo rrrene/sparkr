@@ -32,6 +32,11 @@ module Sparkr
     # suppose you use a gem that adds a #color method to String
     # for ANSI coloring.
     #
+    #   require 'term/ansicolor'
+    #   class String
+    #     include Term::ANSIColor
+    #   end
+    #
     #   list = [open_issue_count, closed_issue_count]
     #   sparkline = Sparkr::Sparkline.new(list)
     #   sparkline.format do |tick, count, index|

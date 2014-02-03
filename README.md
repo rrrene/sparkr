@@ -56,6 +56,11 @@ Let's further suppose you use a gem that adds a `#color` method to `String`
 for ANSI coloring, like
 [Term::ANSIColor](https://github.com/flori/term-ansicolor).
 
+    require 'term/ansicolor'
+    class String
+      include Term::ANSIColor
+    end
+
     Sparkr.sparkline(list) do |tick, count, index|
       if index == 0
         tick.color(:red)
