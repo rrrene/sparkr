@@ -1,5 +1,6 @@
 #!/usr/bin/env ruby
 
+# @return [String] the path of sparkr's lib directory
 def find_lib_path
   path = __FILE__
   while File.symlink?(path)
@@ -8,7 +9,12 @@ def find_lib_path
   File.join(File.dirname(File.expand_path(path)), '..', 'lib')
 end
 
+# @return [Array<String>] the arguments passed or piped via the command-line
+def cli_arguments
+  STDIN.tty? ? ARGV : STDIN.read.split(/\s+/)
+end
+
 $LOAD_PATH.unshift(find_lib_path)
 
 require 'sparkr'
-Sparkr::CLI.run(*ARGV)
+Sparkr::CLI.run(*cli_arguments)
