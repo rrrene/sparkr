@@ -12,4 +12,14 @@ describe ::Sparkr::CLI do
     assert err.empty?, "there should be no errors"
     assert_equal "▁▁▁▁▃▁▁▁▂█\n", out
   end
+
+  it ".run should print usage information if args are missing" do
+    string_numbers = %w()
+    out, err = capture_io do
+      ::Sparkr::CLI.run(*string_numbers)
+    end
+    refute out.empty?, "there should be some output"
+    assert err.empty?, "there should be no errors"
+    assert_match /USAGE\:/, out
+  end
 end
