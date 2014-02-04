@@ -15,7 +15,7 @@ module Sparkr
     # Runs sparkr with the given +args+
     # @return [void]
     def run(*args)
-      if args.empty?
+      if args.empty? || (args.size == 1 && %w(-h --help).include?(args.first))
         puts help
       else
         sparkline = Sparkline.new(args.map(&:to_f))
