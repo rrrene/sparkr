@@ -33,6 +33,11 @@ you would expect:
     $ sparkr 0 30 55 80 33 150
     ▁▂▃▅▂▇
 
+It is also possible to pipe data into `sparkr`:
+
+    $ echo 9 13 5 17 1 | sparkr
+    ▄▆▂█▁
+
 ### Ruby
 
 The real reason for this port:
