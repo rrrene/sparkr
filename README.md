@@ -1,4 +1,4 @@
-# Sparkr [![Build Status](https://travis-ci.org/rrrene/sparkr.png?branch=master)](https://travis-ci.org/rrrene/sparkr) [![Code Climate](https://codeclimate.com/github/rrrene/sparkr.png)](https://codeclimate.com/github/rrrene/sparkr) [![Inline docs](http://inch-pages.github.io/github/rrrene/sparkr.png)](https://inch-pages.github.io/github/rrrene/sparkr)
+# Sparkr [![Build Status](https://travis-ci.org/rrrene/sparkr.png?branch=master)](https://travis-ci.org/rrrene/sparkr) [![Code Climate](https://codeclimate.com/github/rrrene/sparkr.png)](https://codeclimate.com/github/rrrene/sparkr) [![Inline docs](http://inch-pages.github.io/github/rrrene/sparkr.png)](http://inch-pages.github.io/github/rrrene/sparkr)
 
 Sparkr is a port of [spark](https://github.com/holman/spark) for Ruby.
 
